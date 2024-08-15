@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    nav h3{
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    nav li{
+        margin: 0 1rem;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    nav{
+        padding-left: 3rem !important;
+        padding-right: 3rem !important;
+        z-index: 2;
+        background-color: #fafafa;
+    }
+
+    .hero h1{
+        font-size: 82px;
+    }
+
+    .hero .button{
+        width: auto;   
+    }
+
+    .hero .buttonl{
+    	border: 2px solid #252B42;
+        background-color: rgba(0, 0, 0, 0);
+        color: #252B42;
+    }
+
+
+    .hero figure{
+        padding-top: 8rem;
+    }
+
+    @media only screen and (min-width: 1200px){
+        nav{
+            padding: 0 7rem !important;
+        }
+
+    }
+
+    @media only screen and (max-width: 768px){
+        .hero{
+            padding-bottom: 2rem;
+        }
+
+        .hero h1{
+          font-size: 34px;  
+        }
+
+        nav{
+            padding-left: 2rem !important;
+            padding-right: 2rem !important;
+        }
+
+        .hero h3{
+            font-size: 18px;
+        }
+
+        nav h3{
+            font-size:  18px !important;
+        }
+
+        /*buttons of hero section*/
+        .hero figure{
+            padding-top: 4rem;
+        }
+
+        .hero .button{
+            width: 45%;
+            font-size: 12px;    
+        }
+
+    }
+
+    .svg{
+        width: 80%;
+    }
+
+    .svg-round{
+        width: 16vw !important;
+    }
+
+
+    @media (min-width: 992px) {
+  	  .svg {
+   		    width: 50% !important;
+  		}
+    }
+
+    @media (max-width: 768px) {
+  	    .svg {
+    	    width: 100% !important;
+  		}
+
+        .svg-round{
+            width: 30vw  !important;
+        }
+
+	}
+
+    @media screen and (max-width: 992px) and (orientation: landscape) {
+        .spline {
+            height: 100vw !important;
+         }
+    }
+
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+    var shadowHost = document.getElementsByTagName('spline-viewer')[0];
+    console.log(shadowHost.shadowRoot)
+    // Access the shadow root
+    var shadowRoot = shadowHost.shadowRoot;
+
+    // Create a style element for the shadow DOM
+    var style = document.createElement('style');
+    style.textContent = `
+      /* Styles for the existing shadow element */
+        
+      #spline {
+        height: 100vh !important;
+        width: 100vw !important;
+      }
+
+      @media only screen and (max-width: 768px){
+        #container{
+            background-color: #EFF8ED;
+        }
+    }
+
+    @media only screen and (min-width: 992px){
+        #container{
+            position: relative;
+        }
+
+        #spline{
+            position: absolute;
+            top: -5rem;
+        }
+    }
+    `;
+
+    // Append the style element to the shadow root
+    shadowRoot.appendChild(style);
+
+    })
+</script>
+
+<body class="container-fluid m-0 p-0 vw-100">
+    <img class="p-0 d-none d-lg-block img-3d position-absolute" src="/images/3d.png" />
+    <nav class="navbar navbar-expand-md py-3">
+        <div class="nav-container container-fluid px-0">
+            <div class="col navbar-brand">
+                <h3 class="my-0">ALFREDO G.G</h3>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse col col-lg-5" id="navbarNav">
+                <ul class="d-flex p-0 m-0 navbar-nav">
+                        <li>Proyects</li>
+                        <li>Tools</li>
+                        <li>About me</li>
+                </ul>
+            </div>
+            <div class="col d-none d-md-block">
+                <ul class="d-flex align-items-center p-0 m-0 list-inline">
+                    <li class="d-none d-lg-block">
+                        <svg width="28" height="28" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.02104 22.3012C5.41553 22.6968 5.61306 23.2477 5.55981 23.8038C5.44049 25.0502 5.16566 26.3472 4.81269 27.5522C7.42811 26.9477 9.02545 26.2465 9.75153 25.8785C10.1637 25.6697 10.6384 25.6203 11.0847 25.74C12.3181 26.0707 13.6327 26.25 15 26.25C22.4917 26.25 28.125 20.9859 28.125 15C28.125 9.01415 22.4917 3.75 15 3.75C7.50825 3.75 1.875 9.01415 1.875 15C1.875 17.7527 3.03245 20.307 5.02104 22.3012ZM4.09668 29.623C4.08405 29.6255 4.0714 29.628 4.05874 29.6305C3.88656 29.6644 3.71104 29.6978 3.53216 29.7306C3.28124 29.7766 3.02371 29.8213 2.75948 29.8645C2.38632 29.9256 2.10069 29.5352 2.24809 29.187C2.34439 28.9595 2.43932 28.7211 2.53181 28.4739C2.59057 28.3168 2.64834 28.1562 2.70485 27.9926C2.70729 27.9856 2.70972 27.9785 2.71215 27.9715C3.17667 26.622 3.55493 25.0708 3.69335 23.6251C1.39324 21.3185 0 18.3016 0 15C0 7.75126 6.71573 1.875 15 1.875C23.2843 1.875 30 7.75126 30 15C30 22.2487 23.2843 28.125 15 28.125C13.4686 28.125 11.9908 27.9242 10.5991 27.551C9.62506 28.0446 7.52688 28.9431 4.09668 29.623Z" fill="#252B42"/>
+                        </svg>    
+                    </li>
+                    <li class="d-none d-md-block">
+                        <button class="button text-nowrap py-2 px-3 rounded-2">
+                            Contact me
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="row m-0 position-relative" style="position: relative !important;">
+        <div class="col spline min-vh-100 p-0" style="background: #EFF8ED">
+            <spline-viewer url="https://prod.spline.design/nSomkoJPYpHH07x7/scene.splinecode"></spline-viewer>
+        </div>
+        <div class="hero d-flex align-items-end d-md-block col-lg-8 col-12 position-absolute pt-5 h-100">
+            <section class="position-relative" style="z-index: 1;">
+                <h4 class="mb-3 mb-md-4 mb-lg-5">FULLSTACK DEVELOPER</h4>
+                <h1 class="fw-bold mb-5">Hello!. <br/> Alfredo's Here</h1>
+                <h3>Multifacetic Informatic Engineer <br/> Know my work, and my personal technical areas of interest.</h3>
+                <figure class="d-flex">
+                    <a class="button py-3 px-0 px-md-5 text-center me-2 me-md-4 rounded-2">
+                        Download cv
+                    </a>
+                    <a href="https://www.linkedin.com/in/alfredo-gonzalez-435150192" class="button buttonl text-center py-3 px-0 px-md-5 rounded-2">
+                        LinkedIn
+                    </a>
+                </figure>
+            </section>
+        </div>
+	    <img style="bottom: 0; left: -1rem;" class="p-0 position-absolute svg" src="/images/hero1-svg.png" />
+    </div>
+
+
+    <div class="row m-0  position-relative overflow-hidden min-vh-100" style="background: linear-gradient(#EDF8EC, #EDF8EC, #FAFAFA);"> 
+        <div style="z-index: 4;" class="col hero-container  min-vh-100 col-12 col-lg-7 m-0 pt-2">
+            <img style="top: 0; left: -1rem;" class="p-0 position-absolute svg" src="/images/hero2-svg.png" />
+                <h1 class="fw-bold mt-5 position-relative"> Know my products <br>
+                and let's work together
+                </h1>
+                <p class="fs-3 mt-5 fw-medium pe-md-5 me-md-4" style="color: #5C5C5C">
+                    Custom architectures, design patterns, and scalable solutions for your requirements
+                </p>
+                    <ul class="fs-5 ms-1 ms-md-5 mt-0 mt-xl-5 pt-2 pt-lg-5 mb-5 mb-md-0 d-lg-block"> 
+                        <li>Custom Designs and architectures</li>
+                        <li>Pixel perfect products</li>
+                        <li>High performance</li>
+                    </ul>
+        </div>
+        <div    style="perspective: 400px; transform-style: preserve-3d;" 
+                class="col col-12 col-lg-5 m-0 hero-products d-flex justify-content-center position-relative vh-100">
+            <img class="position-absolute screens s1" style="filter: drop-shadow(2px -2px 0px #99BD80);"  src="/images/screenbg.png"> 
+            <img class="position-absolute screens s2" style="filter: drop-shadow(-2px -2px 0px #99BD80);"  src="/images/screenbg.png"> 
+            <img class="position-absolute screens s3" style="filter: drop-shadow(2px -2px 0px #99BD80);"  src="/images/screenbg.png"> 
+            <img style="bottom: 0; right: -1rem; width: 16vw" class="p-0 svg-round position-absolute" src="/images/group1.png" />   
+        </div>
+    </div>
+
+
+    <div class="row m-0 position-relative vw-100" style="overflow: hidden;">
+        <div class="col hero-render pt-0 pt-lg-5 min-vh-100 position-relative pb-5 " style="z-index:2;">
+            <h2 class="fw-bold mt-4">Experience in multiple plattforms <br>
+                Libraries and languages
+            </h2>
+            <ul class="list-inline flex-lg-row align-items-center w-100 d-flex justify-content-center pt-4 pt-lg-0 pt-lg-5 mt-5">
+                <li class="rounded-3 card">
+                    <figure></figure>
+                    <section>
+                        <h6 class="fw-bold">Mobile</h6>
+                        <p>
+                            I have experience develop multiple apps with swift UI framework, handling logins, sessions, and core kits for multiple propouses.
+
+                            For see more about my experience in movile development click on more
+                        </p>
+                    </section>
+                    <ul class="list-inline position-absolute">
+                        <li>Read more</li>
+                        <li>
+                            mobile
+                        </li>
+                    </ul>
+                </li>
+                <li class="rounded-3 card">
+                    <figure></figure>
+                    <section>
+                        <h6 class="fw-bold">Web development</h6>
+                        <p>
+                            I worked in proyects implementing diversing types of librarys like Next.js for ssr. And diversing types of libraries, patterns and tools.Also have some ecomerce for buy diversive types of products.For see more about my experience in web development click on more.
+                        </p>
+                    </section>
+                    <ul class="list-inline position-absolute">
+                        <li>Read more</li>
+                        <li>
+                            web
+                        </li>
+                    </ul>
+                </li>
+                <li class="rounded-3 card">
+                    <figure></figure>
+                    <section>
+                        <h6 class="fw-bold">Backend</h6>
+                        <p>
+                            I worked in proyects implementing diversing types of librarys of logics inmplementing services both in the web and on movile
+
+                            For see more about my experience in backend development click on more.
+                        </p>
+                    </section>
+                    <ul class="list-inline position-absolute">
+                        <li>Read more</li>
+                        <li>
+                            backend
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    <img style="top: 0; right: -1rem; width: 16vw" class="svg-round p-0 position-absolute" src="/images/group2.png" />   
+	<img style="bottom: 0; left: -1rem;" class="p-0 position-absolute svg" src="/images/hero.png" />
+    </div>
+	<div class="hero-third row m-0 position-relative overflow-hidden"
+        style="background: linear-gradient(#FAFAFA , #EDF8EC, #EDF8EC);"
+    > 
+	<img style="top: 0; left: -1rem;" class="p-0 position-absolute svg" src="/images/hero4.png" />
+		<div class="column position-relative p-0" style="background-color: rgba(255, 255, 255, 0);">
+            <section class="m-0 pt-0 pt-md-2" style="z-index: 5">
+                <h1 class="fw-bold mt-5 mb-5"> Custom 3d models and visual effects creations </h1>
+                <p class="mb-4" style="color: #7A828A; font-weight: 400;">Explore my journey to become into a visual effects creator</p>
+                <a href="" class="text-decoration-none">
+                    <h6 class="mt-2 pt-2" style="font-size: 14px;">Explore my social media ></h6>
+                </a>
+            </section>
+			<section>
+				<ul class="mt-4 box-sizing: content-box; list-inline position-absolute py-5" 
+                    style="z-index: 2; overflow-y: visible; overflow-x: scroll; padding: 2rem 0rem; padding-left: 1rem;">
+					<li><span class="card_ticket position-absolute rounded-2">❤️ Beauty</span></li>
+					<li><span class="card_ticket position-absolute rounded-2">⌛ Time</span></li>
+					<li><span class="card_ticket position-absolute rounded-2">🌵 Desert</span></li>
+					<li><span class="card_ticket position-absolute rounded-2">❤️ Beauty</span></li>
+					<li><span class="card_ticket position-absolute rounded-2">⌛ Time</span></li>
+					<li><span class="card_ticket position-absolute rounded-2">🌈 Past</span></li>
+					<li><span class="card_ticket position-absolute rounded-2">🔆 Hope</span></li>
+                </ul>	
+			</section>	
+		</div>
+	</div>
+    <div class="row m-0">
+        <div class="col hero-social p-0 px-3 d-flex justify-content-center align-items-center" style="min-height: 60vh; background-color: #EFF8ED;">
+            <section class="text-center">
+                <h6 class="fw-bold mb-2" style="color:#96BB7C;">work with me</h4>
+                 <h5 class="fw-bold mb-4">Contact me <br> from my social networks</h5>
+                 <p class="m-0">
+                    High resolution and pixel perfect products, follow my career path and my public learning content <br />
+                    explore my certifications, my side projects and give me feedback.
+                 </p>
+                 <figure class="m-0 mt-5 p-0 pt-4">
+                    <img class="me-5" width="50" src="/images/twitter.png" alt="twitter-logo">
+                    <img class="me-5" width="50" src="/images/facebook.png" alt="facebook-logo">
+                    <img width="50" src="/images/instagram.png" alt="instagram-logo">
+                 </figure>   
+            </section>
+        </div>
+    </div>
+</body>
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.94/build/spline-viewer.js"></script>
+</html>
+

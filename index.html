@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="/js/rellax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+    
 </head>
 
 <style>
-
-    .fadeIn, .fadeIn-md, .fadeIn-sm, .fadeOut, .fadeOut-md, .fadeOut-sm{
+     .fadeIn, .fadeIn-md, .fadeIn-sm, .fadeOut, .fadeOut-md, .fadeOut-sm{
         animation-duration: .8s;
         animation-play-state: running;
         animation-fill-mode: forwards;
@@ -118,7 +118,6 @@
             opacity: 0;
         }
     }
-
 
     nav h3{
         font-weight: bold;
@@ -336,7 +335,7 @@
                 <h1 class="fw-bold mt-5 position-relative"> Know my products <br>
                 and let's work together
                 </h1>
-                <p data-rellax-speed=".1" class="rellax-2 fs-3 mt-5 fw-medium pe-md-5 me-md-4" style="color: #5C5C5C">
+                <p data-rellax-speed=".1" class="rellax-2 fs-3 mb-0 mt-5 fw-medium pe-md-5 me-md-4" style="color: #5C5C5C">
                     Custom architectures, design patterns, and scalable solutions for your requirements
                 </p>
                     <ul data-rellax-speed="-.1" class="rellax-2 fs-5 ms-1 ms-md-5 mt-0 mt-xl-5 pt-2 pt-lg-5 mb-5 mb-md-0 d-lg-block"> 
@@ -360,16 +359,20 @@
             <h2 class="fw-bold mt-4">Experience in multiple plattforms <br>
                 Libraries and languages
             </h2>
-            <ul class="list-inline flex-lg-row align-items-center w-100 d-flex justify-content-center pt-4 pt-lg-0 pt-lg-5 mt-5">
+            <ul id="cards__container" class="list-inline flex-lg-row align-items-center w-100 d-flex justify-content-center pt-0 pt-lg-5 mt-5">
                 <li class="rounded-3 card">
                     <figure></figure>
                     <section>
                         <h6 class="fw-bold">Mobile</h6>
-                        <p>
+                        <p class="d-none d-md-block">
                             I have experience develop multiple apps with swift UI framework, handling logins, sessions, and core kits for multiple propouses.
 
                             For see more about my experience in movile development click on more
                         </p>
+                         <p class="d-block d-md-none">
+                            Methodologies, preprocessors, Frontend libraries, scalable patterns
+                        </p>
+
                     </section>
                     <ul class="list-inline position-absolute">
                         <li>Read more</li>
@@ -382,8 +385,11 @@
                     <figure></figure>
                     <section>
                         <h6 class="fw-bold">Web development</h6>
-                        <p>
+                        <p class="d-none d-md-block">
                             I worked in proyects implementing diversing types of librarys like Next.js for ssr. And diversing types of libraries, patterns and tools.Also have some ecomerce for buy diversive types of products.For see more about my experience in web development click on more.
+                        </p>
+                        <p class="d-block d-md-none">
+                            Methodologies, preprocessors, Frontend libraries, scalable patterns
                         </p>
                     </section>
                     <ul class="list-inline position-absolute">
@@ -397,10 +403,13 @@
                     <figure></figure>
                     <section>
                         <h6 class="fw-bold">Backend</h6>
-                        <p>
+                        <p class="d-none d-md-block">
                             I worked in proyects implementing diversing types of librarys of logics inmplementing services both in the web and on movile
 
                             For see more about my experience in backend development click on more.
+                        </p>
+                        <p class="d-block d-md-none">
+                            Kafka and streaming services, aws, design patterns, and custom logics for your requirements
                         </p>
                     </section>
                     <ul class="list-inline position-absolute">
@@ -410,6 +419,9 @@
                         </li>
                     </ul>
                 </li>
+                <button id="cards__toggle-button" class="d-block d-md-none cards__toggle-button">
+                    click
+                </button>
             </ul>
         </div>
     <img style="top: 0; right: -1rem; width: 16vw" class="svg-round p-0 position-absolute" src="/images/group2.png" />   
@@ -424,7 +436,7 @@
                 <h1 class="fw-bold mt-5 mb-5"> Custom 3d models and visual effects creations </h1>
                 <p class="mb-4" style="color: #7A828A; font-weight: 400;">Explore my journey to become into a visual effects creator</p>
                 <a href="" class="text-decoration-none">
-                    <h6 class="mt-2 pt-2" style="font-size: 14px;">Explore my social media ></h6>
+                    <h6 class="mt-2 pt-2 fw-medium" style="font-size: 14px;">Explore my social media ></h6>
                 </a>
             </section>
 			<section>
@@ -446,7 +458,7 @@
             <section class="text-center">
                 <h6 class="fw-bold mb-2" style="color:#96BB7C;">work with me</h4>
                  <h5 class="fw-bold mb-4">Contact me <br> from my social networks</h5>
-                 <p class="m-0">
+                 <p class="m-0 fw-medium">
                     High resolution and pixel perfect products, follow my career path and my public learning content <br />
                     explore my certifications, my side projects and give me feedback.
                  </p>
@@ -465,6 +477,26 @@
   // Accepts any class name
   var rellax = new Rellax('.rellax');
   var rellax2 = new Rellax('.rellax-2')
+
+  let button = document.getElementById('cards__toggle-button')  
+      button.addEventListener('click', toggleCards) 
+
+
+  function toggleCards(){
+    const cardsContainer = document.getElementById('cards__container')
+    const $cards = document.getElementsByClassName('card');
+
+    Array.from($cards).forEach(card => {
+      card.classList.toggle('card-visible');
+    });
+    
+    cardsContainer.classList.toggle('cards-visible'); 
+  }  
+
+
+
+
+
 </script>
 </html>
 

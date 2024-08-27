@@ -419,10 +419,9 @@
                         </li>
                     </ul>
                 </li>
-                <button id="cards__toggle-button" class="d-block d-md-none cards__toggle-button">
-                    click
-                </button>
             </ul>
+            <button id="cards__toggle-button" class="d-block d-md-none cards__toggle-button">
+            </button>
         </div>
     <img style="top: 0; right: -1rem; width: 16vw" class="svg-round p-0 position-absolute" src="/images/group2.png" />   
 	<img style="bottom: 0; left: -1rem;" class="p-0 position-absolute svg" src="/images/hero.png" />
@@ -486,11 +485,12 @@
     const cardsContainer = document.getElementById('cards__container')
     const $cards = document.getElementsByClassName('card');
 
+    cardsContainer.classList.toggle('cards-visible'); 
+
     Array.from($cards).forEach(card => {
       card.classList.toggle('card-visible');
     });
     
-    cardsContainer.classList.toggle('cards-visible'); 
   }  
 
 

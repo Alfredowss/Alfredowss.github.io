@@ -314,7 +314,7 @@
             <section class="position-relative"  style="z-index: 1;">
                 <h4 data-rellax-speed="2" class="rellax mb-3 mb-md-4 mb-lg-5">FULLSTACK DEVELOPER</h4>
                 <h1 data-rellax-speed="1.5" class="rellax fw-bold mb-5">Hello!. <br/> Alfredo's Here</h1>
-                <h3 data-rellax-xs-speed="-1" data-rellax-mobile-speed="-1" data-rellax-tablet-speed="-2" data-rellax-desktop-speed="-2" class="rellax">Multifacetic Informatic Engineer <br/> Know my work, and my personal technical areas of interest.</h3>
+                <h3 data-rellax-xs-speed="-1.6" data-rellax-mobile-speed="-1" data-rellax-tablet-speed="-3.4" data-rellax-desktop-speed="-2.4" class="rellax">Multifacetic Informatic Engineer <br/> Know my work, and my personal technical areas of interest.</h3>
                 <figure data-rellax-speed="2" class="rellax d-flex">
                     <a class="button py-3 px-0 px-md-5 text-center me-2 me-md-4 rounded-2">
                         Download cv
@@ -441,13 +441,13 @@
 			<section>
 				<ul class="mt-4 box-sizing: content-box; list-inline position-absolute py-5" 
                     style="z-index: 2; overflow-y: visible; overflow-x: scroll; padding: 2rem 0rem; padding-left: 1rem;">
-					<li><span class="card_ticket position-absolute rounded-2">❤️ Beauty</span></li>
-					<li><span class="card_ticket position-absolute rounded-2">⌛ Time</span></li>
-					<li><span class="card_ticket position-absolute rounded-2">🌵 Desert</span></li>
-					<li><span class="card_ticket position-absolute rounded-2">❤️ Beauty</span></li>
-					<li><span class="card_ticket position-absolute rounded-2">⌛ Time</span></li>
-					<li><span class="card_ticket position-absolute rounded-2">🌈 Past</span></li>
-					<li><span class="card_ticket position-absolute rounded-2">🔆 Hope</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">❤️ Beauty</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">⌛ Time</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">🌵 Desert</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">❤️ Beauty</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">⌛ Time</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">🌈 Past</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">🔆 Hope</span></li>
                 </ul>	
 			</section>	
 		</div>
@@ -469,6 +469,9 @@
             </section>
         </div>
     </div>
+    <div id="overlay" class="d-none d-flex justify-content-center align-items-center" onclick="toggleModal()">
+       <img id="overlay__img" style="height: 80vh" width="auto"> 
+    </div>
 </body>
 <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.94/build/spline-viewer.js"></script>
 <script type="module" src="/js/observer.js"></script>
@@ -476,6 +479,11 @@
   // Accepts any class name
   var rellax = new Rellax('.rellax');
   var rellax2 = new Rellax('.rellax-2')
+
+  const carouselItems = document.getElementsByClassName('carousel__item')	
+
+  let overlay = document.getElementById('overlay')  
+  let overlayImg = document.getElementById('overlay__img')  
 
   let button = document.getElementById('cards__toggle-button')  
       button.addEventListener('click', toggleCards) 
@@ -493,8 +501,27 @@
     
   }  
 
+    function toggleModal(){
+	  overlay.classList.toggle('overlay');
+	  overlay.classList.toggle('d-none');
+    }
+    
+    
+    function showOnModal(e){
+        const bg = window.getComputedStyle(e, false).background
+        const url = bg.substring(bg.indexOf('"') + 1, bg.lastIndexOf('"'));
+        toggleModal();
+        overlayImg.setAttribute("src", url);
+    }
 
 
+
+	
+  function stopCarousel(e){
+ 	 Array.from(carouselItems).forEach(item =>{
+ 	       item.classList.toggle('paused')
+ 	 })
+  }
 
 
 </script>

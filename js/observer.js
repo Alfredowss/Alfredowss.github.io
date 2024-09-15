@@ -9,6 +9,15 @@ const viewportsClasses = {
 }
 
 
+const viewportsOutClasses = {
+    1080: 'fadeOut',
+    992 : "fadeOut-md", 
+    768 : "fadeOut-sm"
+}
+
+
+
+
 function classChecker(e, name, mode){
 
   let subst = "";
@@ -22,13 +31,25 @@ function classChecker(e, name, mode){
   outClass = outClass.concat(subst);
   inClass = inClass.concat(subst);
 
-   if(e.classList.contains(outClass)){
-        e.classList.remove(outClass)            
-     }
+ //check in classes
 
-   if(e.classList.contains(inClass)){
-        e.classList.remove(inClass)            
-    }
+ for(const [key, prop] of Object.entries(viewportsClasses)){
+	if(e.classList.contains(prop)){
+		e.classList.remove(prop)
+	}
+ } 
+
+
+//check out classes	
+
+ for(const [key, prop] of Object.entries(viewportsOutClasses)){
+	if(e.classList.contains(prop)){
+		e.classList.remove(prop)
+	}
+ } 
+
+
+
 
   if(mode == 'in'){  
     return inClass

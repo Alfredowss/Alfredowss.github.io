@@ -441,13 +441,13 @@
 			<section>
 				<ul class="mt-4 box-sizing: content-box; list-inline position-absolute py-5" 
                     style="z-index: 2; overflow-y: visible; overflow-x: scroll; padding: 2rem 0rem; padding-left: 1rem;">
-					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">❤️ Beauty</span></li>
-					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">⌛ Time</span></li>
-					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">🌵 Desert</span></li>
-					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">❤️ Beauty</span></li>
-					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">⌛ Time</span></li>
-					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">🌈 Past</span></li>
-					<li class="carousel__item" onclick="showOnModal(this)" onmouseleave="stopCarousel(this)" onmouseenter="stopCarousel(this)"><span class="card_ticket position-absolute rounded-2">🔆 Hope</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)"><span class="card_ticket position-absolute rounded-2">❤️ Beauty</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)"><span class="card_ticket position-absolute rounded-2">⌛ Time</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)"><span class="card_ticket position-absolute rounded-2">🌵 Desert</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)"><span class="card_ticket position-absolute rounded-2">❤️ Beauty</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)"><span class="card_ticket position-absolute rounded-2">⌛ Time</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)"><span class="card_ticket position-absolute rounded-2">🌈 Past</span></li>
+					<li class="carousel__item" onclick="showOnModal(this)"><span class="card_ticket position-absolute rounded-2">🔆 Hope</span></li>
                 </ul>	
 			</section>	
 		</div>
@@ -510,19 +510,15 @@
     function showOnModal(e){
         const bg = window.getComputedStyle(e, false).background
         const url = bg.substring(bg.indexOf('"') + 1, bg.lastIndexOf('"'));
+
+        if(overlayImg.classList.contains('appear')){
+            overlayImg.classList.remove('appear')
+        }
+
         toggleModal();
+        overlayImg.classList.toggle('appear')
         overlayImg.setAttribute("src", url);
     }
-
-
-
-	
-  function stopCarousel(e){
- 	 Array.from(carouselItems).forEach(item =>{
- 	       item.classList.toggle('paused')
- 	 })
-  }
-
 
 </script>
 </html>
